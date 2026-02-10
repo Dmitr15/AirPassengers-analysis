@@ -1,12 +1,35 @@
-# AirPassengers-analysis
-Dataset analysis using python, matplotlib, seaborn, sklearn and ARIMA.
+# Air Passengers Time Series Analysis
+## This project analyzes the classic "AirPassengers" time series dataset using ARIMA modeling techniques. The analysis focuses on time series decomposition, stationarity testing, and building predictive models for airline passenger forecasting.
 
-Dataset: AirPassengers.csv
+###  Dataset
+  - Dataset: AirPassengers.csv
+  - Description: Monthly totals of international airline passengers (1949-1960)
+  - Time Period: January 1949 - December 1960
+  - Frequency: Monthly data
+  - Units: Thousands of passengers
 
-Completed task:
+### Analysis Pipeline
+#### 1. Data Preprocessing
+  - Set 'Month' column as datetime index
+  - Convert index to proper datetime format
+  - Resample data to annual frequency for aggregation
 
-1. Visualize the data on a graph.
-2. Determine whether the time series is stationary.
-3. If the data is not stationary, make it stationary (take the logarithm of the time series to reduce the rate of increase of the moving average. It is also necessary to use the method of subtracting the moving average from the logarithm of the time series).
-4. Use the ARIMA model from the statmodels library to analyze the data for the next 10 years.
-5. Display the predicted data on a graph (using plot_predict)
+#### 2. Exploratory Data Analysis
+  - Rolling Statistics: 12-month moving average calculation
+  - Visualization:
+    - Original time series plot
+    - Rolling mean overlay for trend analysis
+    - Log-transformed series visualization
+    - First-order differencing plots
+   
+#### 3. Stationarity Testing
+  - Augmented Dickey-Fuller (ADF) Test:
+    - Applied to original series
+    - p-value analysis for stationarity determination
+    - Results: Initial series is non-stationary (p > 0.05)
+
+### Forecasting
+  - Forecast Horizon: 400 periods (approximately 33 years)
+  - Method: Model-based prediction using fitted ARIMA parameters
+  - Output: Extended time series with predictions
+
